@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuck Shop - Price Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f1;
+            color: #344638;
+        }
+
+        header {
+            background-color: #dcebd9;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid #c9ddc5;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+            color: #365a40;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 55px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(50, 80, 50, 0.10);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            color: #365a40;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 22px;
+            border: 1px solid #cbd9c8;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            background-color: #fbfdf9;
+        }
+
+        input:focus {
+            border-color: #719b76;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #719b76;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #557e5b;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #edf5e9;
+            border: 1px solid #d7e7d2;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            margin: 0 0 10px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #607763;
+        }
+
+        #result {
+            margin: 0;
+            font-size: 27px;
+            font-weight: bold;
+            color: #365a40;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                margin: 30px 18px;
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1> Tuck Shop</h1>
+    </header>
+
+    <main class="container">
+        <h2>Price Calculator</h2>
+
+        <label for="price">Price (Rs.)</label>
+        <input type="text" id="price" placeholder="Enter price">
+
+        <label for="quantity">Quantity</label>
+        <input type="text" id="quantity" placeholder="Enter quantity">
+
+        <button onclick="calculateTotal()">Add</button>
+
+        <div class="result-box">
+            <h3>TOTAL AMOUNT</h3>
+            <p id="result"></p>
+        </div>
+    </main>
+
+    <script>
+        function calculateTotal() {
+            let priceInput = document.getElementById("price").value;
+            let quantityInput = document.getElementById("quantity").value;
+
+            let price = Number(priceInput);
+            let quantity = Number(quantityInput);
+
+            let total = price * quantity;
+
+            document.getElementById("result").textContent = total;
+        }
+    </script>
+
+</body>
+</html>
